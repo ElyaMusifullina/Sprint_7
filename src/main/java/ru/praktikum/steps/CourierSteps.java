@@ -25,11 +25,11 @@ public class CourierSteps {
       .then();
   }
 
-  public ValidatableResponse deleteCourier(Courier courier) {
-    return given()
-      .body(courier)
+  public void deleteCourier(Courier courier) {
+    given()
+      .pathParam("id", courier.getId())
       .when()
-      .post(COURIER_DELETE)
+      .delete(COURIER_DELETE)
       .then();
   }
 }
