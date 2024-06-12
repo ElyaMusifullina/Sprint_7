@@ -1,6 +1,7 @@
 package ru.praktikum;
 
-import static org.hamcrest.CoreMatchers.notNullValue;
+import static java.util.Optional.empty;
+import static org.hamcrest.CoreMatchers.not;
 
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.Test;
@@ -13,10 +14,9 @@ public class OrderGetTests extends AbstractTest {
   @Test
   @DisplayName("Проверка happy-path")
   public void shouldReturn200() {
-
     orderSteps
       .getOrder()
       .statusCode(200)
-      .body("orders[]", notNullValue());
+      .body("orders[]", not(empty()));
   }
 }
